@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResultBee Admin Panel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <h1>🐝 ResultBee Admin</h1>
+    <button id="logoutBtn" hidden>Logout</button>
+  </header>
+
+  <main class="container">
+
+    <section id="loginSection" class="panel">
+      <h2>Admin Login</h2>
+
+      <form id="loginForm">
+        <label for="email">Email</label>
+        <input id="email" type="email" required>
+
+        <label for="password">Password</label>
+        <input id="password" type="password" required>
+
+        <button type="submit">Login</button>
+      </form>
+
+      <button type="button" id="resetPasswordBtn" class="secondary">
+        Forgot Password?
+      </button>
+
+      <p id="loginMessage" class="message"></p>
+      <p id="resetMessage" class="message"></p>
+    </section>
+
+    <section id="dashboard" hidden>
+      <h2>Admin Dashboard</h2>
+      <p id="welcome"></p>
+
+      <div class="stats">
+        <div class="stat">
+          <h3>Total Posts</h3>
+          <strong id="totalPosts">0</strong>
+        </div>
+      </div>
+
+      <section class="panel">
+        <h2 id="formTitle">Add New Post</h2>
+
+        <form id="postForm">
+          <label for="title">Post Title</label>
+          <input id="title" maxlength="150" required>
+
+          <label for="category">Category</label>
+          <select id="category" required>
+            <option value="jobs">Latest Jobs</option>
+            <option value="results">Results</option>
+            <option value="admit">Admit Cards</option>
+            <option value="admission">Admissions</option>
+          </select>
+
+          <label for="qualification">Qualification</label>
+          <input id="qualification" maxlength="150">
+
+          <label for="lastDate">Last Date</label>
+          <input id="lastDate" type="date">
+
+          <label for="description">Description</label>
+          <textarea id="description" rows="5" required></textarea>
+
+          <label for="officialUrl">Official Website URL</label>
+          <input id="officialUrl" type="url"
+                 placeholder="https://example.com">
+
+          <button type="submit" id="saveBtn">Publish Post</button>
+          <button type="button" id="cancelEdit" class="secondary" hidden>
+            Cancel Edit
+          </button>
+        </form>
+
+        <p id="formMessage" class="message"></p>
+      </section>
+
+      <section class="panel">
+        <h2>Manage Posts</h2>
+        <div id="postsList">Loading posts...</div>
+      </section>
+    </section>
+
+  </main>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
